@@ -6,24 +6,28 @@ export class QueueArrayDynamic<T> {
     container: T[];
     length: number;
     popCount: number;
+    front: T | undefined;
 
     constructor() {  // TODO: handle space allocation logic
         this.container = [];
         this.length = 0;
         this.popCount = 0;
+        this.front = this.frontF();
     }
 
     pushBack(value: T): void {
         this.container.push(value);
         this.length += 1;
+        this.front = this.frontF();
     }
 
     popBack(): void {
         this.popCount += 1;
         this.length -= 1;
+        this.front = this.frontF();
     }
 
-    front(): T | undefined {
+    frontF(): T | undefined {
         return this.container[this.popCount];
     }
 

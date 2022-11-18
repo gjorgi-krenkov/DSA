@@ -15,13 +15,13 @@ export class QueueArrayDynamic<T> {
         this.front = this.frontF();
     }
 
-    pushBack(value: T): void {
+    insert(value: T): void {
         this.container.push(value);
         this.length += 1;
         this.front = this.frontF();
     }
 
-    popBack(): void {
+    popFront(): void {
         this.popCount += 1;
         this.length -= 1;
         this.front = this.frontF();
